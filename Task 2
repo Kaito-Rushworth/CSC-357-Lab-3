@@ -1,0 +1,23 @@
+#define ARRAY_SIZE 676767
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main () {
+    int fd;
+
+    fd = open("/usr/lib/locale/locale-archive", O_RDONLY);
+    if (fd == -1) {
+        perror("Aww man, unable to open file!!\n");
+        return 1;
+    }
+
+    char buf[ARRAY_SIZE];
+    while (read(fd, buf, ARRAY_SIZE) > 0) {
+
+    }
+
+
+    close(fd);
+    return 0;
+}
